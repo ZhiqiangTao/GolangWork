@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/pkg/errors"
-	"week02/service"
+	"golangwork/week02/service"
 )
 
 func main() {
