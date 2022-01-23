@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+import "third_party/google/protobuf/any.proto";
+package pkg.res;
+option go_package = "mhdsg/pkg/res;res";
+
+// 动态类型data
+message ResultObj{
+  int32 code = 1;
+  string msg = 2;
+  google.protobuf.Any data = 3;
+}
+
+message ResultObjString{
+  int32 code = 1;
+  string msg = 2;
+  string data = 3;
+}
+
+message ResultObjInt64{
+  int32 code = 1;
+  string msg = 2;
+  int64 data = 3;
+}

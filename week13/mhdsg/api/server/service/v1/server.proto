@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package api.server.service.v1;
+
+import "google/api/annotations.proto";
+import "pkg/res/resultobj.proto";
+
+option go_package = "mhdsg/api/server/service/v1;v1";
+
+service Server {
+  rpc GetServer (GetServerRequestViewModel) returns (pkg.res.ResultObj){
+    option (google.api.http) = {
+      get: "/api/server/user"
+    };
+  };
+}
+
+message GetServerRequestViewModel {
+  int32 appid = 1;
+  string channel = 2;
+  string appversion = 3;
+  string platform = 4;
+  int64 userid = 5;
+}
+
+message UserServerResponseData{
+  int64 userid = 1;
+  int32 identity = 2;
+  string name = 3;
+  string public_domain_game = 4;
+  string public_domain_platform = 5;
+  repeated ChatRoomMapDetailData chatroom_id_map = 6;
+}
+
+message ChatRoomMapDetailData {
+  int32 biz_type = 1;
+  string roomid = 2;
+}
